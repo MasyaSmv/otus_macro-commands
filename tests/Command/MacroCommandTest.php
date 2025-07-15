@@ -33,7 +33,6 @@ class MacroCommandTest extends TestCase
         $this->assertSame([1, 2], $subject->log);
     }
 
-
     public function testStopsOnException(): void
     {
         $cmd1 = new class implements CommandInterface {

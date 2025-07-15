@@ -1,6 +1,5 @@
 <?php
 
-use Masyasmv\OtusMacroCommands\Command\BurnFuelCommand;
 use Masyasmv\OtusMacroCommands\Command\MacroCommand;
 use Masyasmv\OtusMacroCommands\Contract\CommandInterface;
 use Masyasmv\OtusMacroCommands\Exception\CommandException;
@@ -11,9 +10,8 @@ class MacroCommandTest extends TestCase
     public function testExecutesAllCommands(): void
     {
         // объект с публичным свойством-масcивом
-        $subject = new class {
-            public array $log = [];
-        };
+        $subject = new \stdClass();
+        $subject->log = [];           // массив-журнал
 
         $cmd1 = new class implements CommandInterface {
             public function execute(object $subject): void
@@ -21,6 +19,7 @@ class MacroCommandTest extends TestCase
                 $subject->log[] = 1;
             }
         };
+
         $cmd2 = new class implements CommandInterface {
             public function execute(object $subject): void
             {
@@ -40,7 +39,7 @@ class MacroCommandTest extends TestCase
         $cmd1 = new class implements CommandInterface {
             public function execute(object $subject): void
             {
-                $subject[] = 1;
+                $subject->log[] = 1;
             }
         };
         $cmd2 = new class implements CommandInterface {
@@ -52,7 +51,7 @@ class MacroCommandTest extends TestCase
         $cmd3 = new class implements CommandInterface {
             public function execute(object $subject): void
             {
-                $subject[] = 3;
+                $subject->log[] = 3;
             }
         };
 

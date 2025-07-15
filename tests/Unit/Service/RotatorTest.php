@@ -4,6 +4,7 @@ namespace Tests\Unit\Service;
 
 use Masyasmv\OtusMacroCommands\Contract\Rotatable;
 use Masyasmv\OtusMacroCommands\Service\Rotator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class RotatorTest extends TestCase
@@ -17,7 +18,7 @@ final class RotatorTest extends TestCase
         ];
     }
 
-    /** @dataProvider angles */
+    #[DataProvider('angles')]
     public function testRotateNormalizes(float $start, float $delta, float $expected): void
     {
         $obj = new class($start) implements Rotatable {

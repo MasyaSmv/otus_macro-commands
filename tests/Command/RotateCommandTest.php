@@ -45,4 +45,22 @@ class RotateCommandTest extends TestCase
         // если mock не сработал — тест упадёт, иначе засчитываем
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @return void
+     * @throws CommandException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
+    public function testThrowsIfSubjectIsNotRotatable(): void
+    {
+        // мок ротатора (не будет вызван)
+        $rotator = $this->createMock(RotatorInterface::class);
+
+        $cmd = new RotateCommand($rotator, 45.0);
+
+        $this->expectException(CommandException::class);
+
+        // объект НЕ реализует Rotatable
+        $cmd->execute(new \stdClass());
+    }
 }

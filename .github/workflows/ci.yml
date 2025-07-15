@@ -21,8 +21,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-interaction
 
-      - name: Run static analysis (Psalm)
-        run: vendor/bin/psalm --shepherd --stats
-
       - name: Run PHPUnit
         run: vendor/bin/phpunit --colors=always

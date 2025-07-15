@@ -1,6 +1,9 @@
 <?php
 
-namespace App\ValueObject;
+namespace Masyasmv\OtusMacroCommands\ValueObject;
+
+use function cos;
+use function sin;
 
 final class Vector2D
 {
@@ -30,8 +33,23 @@ final class Vector2D
     {
         return new self(
             $this->x + $other->x,
-            $this->y + $other->y
+            $this->y + $other->y,
         );
+    }
+
+    /**
+     * Возвращает новый вектор, повёрнутый на $angle градусов (counter-clockwise).
+     */
+    public function rotate(float $angle): self
+    {
+        $rad = deg2rad($angle);
+        $cos = cos($rad);
+        $sin = sin($rad);
+
+        $newX = $this->x * $cos - $this->y * $sin;
+        $newY = $this->x * $sin + $this->y * $cos;
+
+        return new self($newX, $newY);
     }
 
     /**

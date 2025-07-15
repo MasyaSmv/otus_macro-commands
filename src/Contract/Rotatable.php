@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contract;
+namespace Masyasmv\OtusMacroCommands\Contract;
 
 interface Rotatable
 {

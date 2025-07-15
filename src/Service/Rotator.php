@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Service;
+namespace Masyasmv\OtusMacroCommands\Service;
 
-use App\Contract\Rotatable;
+use Masyasmv\OtusMacroCommands\Contract\Rotatable;
+use Masyasmv\OtusMacroCommands\Contract\RotatorInterface;
 
-final class Rotator
+final class Rotator implements RotatorInterface
 {
     public function rotate(Rotatable $obj, float $deltaDeg): void
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Service;
+namespace Masyasmv\OtusMacroCommands\Service;
 
-use App\Contract\Positionable;
-use App\Contract\VelocityAware;
+use Masyasmv\OtusMacroCommands\Contract\Positionable;
+use Masyasmv\OtusMacroCommands\Contract\VelocityAware;
 
 final class Mover
 {

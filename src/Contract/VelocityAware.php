@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Contract;
+namespace Masyasmv\OtusMacroCommands\Contract;
 
-use App\ValueObject\Vector2D;
+
+use Masyasmv\OtusMacroCommands\ValueObject\Vector2D;
 
 interface VelocityAware
 {

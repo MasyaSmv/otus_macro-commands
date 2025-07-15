@@ -1,12 +1,17 @@
 {
+  "name": "masyasmv/otus-macro-commands",
+  "description": "Macro commands implementation for Otus course",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3"
+  },
   "require-dev": {
-    "php": "^8.3",
-    "phpunit/phpunit": "^12.1",
-    "vimeo/psalm": "^6.12"
+    "phpunit/phpunit": "^12.1"
   },
   "autoload": {
     "psr-4": {
-      "App\\": "src/"
+      "Masyasmv\\OtusMacroCommands\\": "src/"
     }
   },
   "autoload-dev": {
@@ -22,5 +27,7 @@
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "sort-packages": true
-  }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }
